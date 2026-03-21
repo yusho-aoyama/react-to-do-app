@@ -31,6 +31,7 @@ const App = () => {
       <h1>To-do App</h1>
       <TodoForm setTodos={setTodos} />
       <TodoList todos={todos} setTodos={setTodos} />
+      <button className="btn btn-primary">Test Button</button>
     </div>
   );
 };
