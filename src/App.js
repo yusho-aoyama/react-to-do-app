@@ -1,14 +1,12 @@
 // src > App.js
-// The parent of the application
-// It manages state of todos
+// The parent of the component
+// It displays a list of tasks and a form
 
 import React, { useState, useEffect } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
 const App = () => {
-  // todos -> The list of the tasks displayed on the screen
-  // setTodos -> A function to update the list of tasks
   // Create a state
   const [todos, setTodos] = useState([]); // state = todos, setState = setTodos
 
@@ -24,6 +22,7 @@ const App = () => {
   // To save tasks in the local storage when the task is updated
   // (create, update, delete)
   useEffect(() => {
+    console.log("todos changed", todos);
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 

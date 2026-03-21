@@ -17,6 +17,9 @@ function TodoForm(props) {
       completed: false,
     };
 
+    console.log("new todo:", newTodo);
+
+    // destructuring
     props.setTodos(function (oldTodos) {
       return [...oldTodos, newTodo];
     });

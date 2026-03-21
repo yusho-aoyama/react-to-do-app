@@ -1,5 +1,5 @@
 // components > TodoLists
-// Role: display the tasks list
+// Role: display the list of tasks
 
 import React from "react";
 import TodoItem from "./TodoItem";
