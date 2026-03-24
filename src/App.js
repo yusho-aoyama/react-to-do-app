@@ -31,14 +31,16 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className="container col gx-0 py-3">
-        <div className="main-header row position-relative p-0 m-0">
+      <main className="py-4">
+        <div className="container">
           <h2>Manage your daily tasks</h2>
-          <p>Stay organised and keep track of what you need to do</p>
+          <p className="text-muted">
+            Stay organised and keep track of what you need to do
+          </p>
+
+          <TodoForm setTodos={setTodos} />
+          <TodoList todos={todos} setTodos={setTodos} />
         </div>
-        <TodoForm setTodos={setTodos} />
-        <TodoList todos={todos} setTodos={setTodos} />
-        <button className="btn btn-primary">Test Button</button>
       </main>
       <Footer />
     </>

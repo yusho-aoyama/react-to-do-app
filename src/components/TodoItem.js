@@ -30,13 +30,20 @@ function TodoItem(props) {
   }
 
   return (
-    <li>
-      <span onClick={toggleComplete}>
-        {props.todo.text} -{" "}
-        {props.todo.completed ? "Completed" : "Not completed"}{" "}
+    <li className="list-group-item d-flex justify-content-between align-items-center">
+      <span
+        onClick={toggleComplete}
+        className={
+          props.todo.completed ? "text-muted text-decoration-line-through" : ""
+        }
+        style={{ cursor: "pointer" }}
+      >
+        {props.todo.text}
       </span>
 
-      <button onClick={deleteTodo}>Delete</button>
+      <button onClick={deleteTodo} className="btn btn-outline-danger btn-sm">
+        <i className="bi bi-trash"></i>
+      </button>
     </li>
   );
 }

@@ -29,13 +29,20 @@ function TodoForm(props) {
   }
 
   return (
-    <form onSubmit={addTodo}>
-      <input
-        type="text"
-        value={text}
-        onChange={(event) => setText(event.target.value)}
-      />
-      <button>Add Task</button>
+    <form onSubmit={addTodo} className="d-flex my-2 gap-2">
+      <div className="flex-grow-1">
+        <input
+          id="addTaskForm"
+          className="form-control"
+          placeholder="Enter a new task"
+          type="text"
+          value={text}
+          onChange={(event) => setText(event.target.value)}
+        />
+      </div>
+      <button type="submit" className="btn btn-primary">
+        Add Task
+      </button>
     </form>
   );
 }

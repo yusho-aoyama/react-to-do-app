@@ -6,7 +6,9 @@ import TodoItem from "./TodoItem";
 
 function TodoList(props) {
   return (
-    <ul>
+    // <div className="card" style="width: 18rem;">
+    //   <div className="card-header">To-do</div>
+    <ul className="list-group list-group-flush">
       {props.todos.map((todo) => {
         return (
           <TodoItem
@@ -18,6 +20,7 @@ function TodoList(props) {
         );
       })}
     </ul>
+    // </div>
   );
 }
 
