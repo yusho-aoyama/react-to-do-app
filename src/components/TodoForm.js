@@ -23,9 +23,15 @@ function TodoForm(props) {
     props.setTodos(function (oldTodos) {
       return [...oldTodos, newTodo];
     });
+    // setTodos((oldTodos) => [...oldTodos, newTodo]);
 
     // Empty form input after adding
     setText("");
+  }
+
+  // Handle event if the text in the input field is changed
+  function handleChange(event) {
+    setText(event.target.value);
   }
 
   return (
@@ -37,7 +43,7 @@ function TodoForm(props) {
           placeholder="Enter a new task"
           type="text"
           value={text}
-          onChange={(event) => setText(event.target.value)}
+          onChange={handleChange}
         />
       </div>
       <button type="submit" className="btn btn-primary">

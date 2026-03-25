@@ -9,8 +9,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const App = () => {
-  // Create a state
+  // Create a state (todo object)
   const [todos, setTodos] = useState([]); // state = todos, setState = setTodos
+
+  // Add a state to filter tasks
+  const [currentFilter, setCurrentFilter] = useState("all");
 
   // When the page is loaded, get todos from the local storage,
   // `localStorage`: save data in the browser
@@ -28,6 +31,21 @@ const App = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+  // Difine a variable to filter todos by the currentFilter
+  // it enables to filter which task will be displayed
+  let filteredTodos;
+  if (currentFilter === "active") {
+    filteredTodos = todos.filter((todo) => {
+      return todo.completed === false;
+    });
+  } else if (currentFilter === "completed") {
+    filteredTodos = todos.filter((todo) => {
+      return todo.completed === true;
+    });
+  } else {
+    filteredTodos = todos;
+  }
+
   return (
     <>
       <Header />
@@ -39,7 +57,27 @@ const App = () => {
           </p>
 
           <TodoForm setTodos={setTodos} />
-          <TodoList todos={todos} setTodos={setTodos} />
+          <div className="d-flex gap-2 my-3">
+            <button
+              className={`btn ${currentFilter === "all" ? "btn-primary" : "btn-outline-primary"}`}
+              onClick={() => setCurrentFilter("all")}
+            >
+              All
+            </button>
+            <button
+              className={`btn ${currentFilter === "active" ? "btn-primary" : "btn-outline-primary"}`}
+              onClick={() => setCurrentFilter("active")}
+            >
+              Active
+            </button>
+            <button
+              className={`btn ${currentFilter === "completed" ? "btn-primary" : "btn-outline-primary"}`}
+              onClick={() => setCurrentFilter("completed")}
+            >
+              Completed
+            </button>
+          </div>
+          <TodoList todos={filteredTodos} setTodos={setTodos} />
         </div>
       </main>
       <Footer />
