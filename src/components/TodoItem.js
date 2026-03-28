@@ -15,7 +15,7 @@ function TodoItem(props) {
   }
 
   return (
-    <li className="list-group-item d-flex justify-content-between align-items-center">
+    <li className="list-group-item d-flex justify-content-between align-items-center hover-item">
       <span
         onClick={toggleComplete}
         className={
@@ -26,7 +26,10 @@ function TodoItem(props) {
         {props.todo.text}
       </span>
 
-      <button onClick={deleteTodo} className="btn btn-outline-danger btn-sm">
+      <button
+        onClick={deleteTodo}
+        className="btn btn-outline-danger btn-sm hover-delete"
+      >
         <i className="bi bi-trash"></i>
       </button>
     </li>

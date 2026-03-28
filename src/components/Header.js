@@ -1,26 +1,13 @@
 // src > components > Header.js
 import React from "react";
 
-function Header() {
+function Header({ totalTasks }) {
   return (
-    <header>
-      <nav className="navbar navbar-light bg-light p-3">
-        <a class="navbar-brand">To-do App</a>
-        <form className="d-flex">
-          <input
-            className="form-control me-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
-      </nav>
+    <header className="bg-light py-3">
+      <div className="container d-flex justify-content-between align-items-center">
+        <h4 className="mb-0">To-do App</h4>
+        <span className="text-muted">Total tasks: {totalTasks}</span>
+      </div>
     </header>
   );
 }

@@ -60,9 +60,9 @@ const App = () => {
   }
 
   return (
-    <>
-      <Header />
-      <main className="py-4">
+    <div className="min-vh-100 d-flex flex-column">
+      <Header totalTasks={todos.length} />
+      <main className="py-4 flex-grow-1">
         <div className="container">
           <h2>Manage your daily tasks</h2>
           <p className="text-muted">
@@ -100,7 +100,7 @@ const App = () => {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,25 @@
+.hover-item {
+  transition: background-color 0.2s ease;
+}
+
+.hover-item:hover {
+  background-color: #f8f9fa;
+}
+
+.hover-task {
+  transition: color 0.2s ease;
+}
+
+.hover-task:hover {
+  color: #0d6efd;
+}
+
+.hover-delete {
+  transition: all 0.2s ease;
+}
+
+.hover-delete:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: scale(1.05);
+}
