@@ -11,9 +11,13 @@ function TodoForm(props) {
     // The defailut browser is normlly automatically reloaded after form submission.
     event.preventDefault();
 
+    const trimmedText = text.trim();
+
+    if (!trimmedText) return;
+
     const newTodo = {
       id: Date.now(),
-      text: text,
+      text: trimmedText,
       completed: false,
     };
 
