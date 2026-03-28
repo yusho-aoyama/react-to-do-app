@@ -91,7 +91,9 @@ const App = () => {
             </button>
           </div>
           <TodoList
-            todos={filteredTodos}
+            allTodos={todos}
+            filteredTodos={filteredTodos}
+            currentFilter={currentFilter}
             onDelete={handleDeleteTodo}
             onToggle={handleToggleComplete}
           />
