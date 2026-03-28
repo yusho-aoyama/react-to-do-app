@@ -16,8 +16,8 @@ function TodoList(props) {
             <TodoItem
               key={todo.id}
               todo={todo}
-              todos={props.todos}
-              setTodos={props.setTodos}
+              onDelete={props.onDelete}
+              onToggle={props.onToggle}
             />
           ))}
         </ul>

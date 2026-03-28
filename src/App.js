@@ -25,11 +25,24 @@ const App = () => {
   }, []); // []: when the first render
 
   // To save tasks in the local storage when the task is updated
-  // (create, update, delete)
   useEffect(() => {
     console.log("todos changed", todos);
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
+
+  // A function to handle delete
+  function handleDeleteTodo(id) {
+    return setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
+  // A function to handle toggle switch
+  function handleToggleComplete(id) {
+    setTodos((oldTodos) =>
+      oldTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+      ),
+    );
+  }
 
   // Difine a variable to filter todos by the currentFilter
   // it enables to filter which task will be displayed
@@ -77,7 +90,11 @@ const App = () => {
               Completed
             </button>
           </div>
-          <TodoList todos={filteredTodos} setTodos={setTodos} />
+          <TodoList
+            todos={filteredTodos}
+            onDelete={handleDeleteTodo}
+            onToggle={handleToggleComplete}
+          />
         </div>
       </main>
       <Footer />
