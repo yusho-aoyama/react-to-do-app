@@ -19,7 +19,9 @@ function TodoItem(props) {
       <span
         onClick={toggleComplete}
         className={
-          props.todo.completed ? "text-muted text-decoration-line-through" : ""
+          props.todo.completed
+            ? "text-muted text-decoration-line-through opacity-75"
+            : "text-dark hover-task"
         }
         style={{ cursor: "pointer" }}
       >
